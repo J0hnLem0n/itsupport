@@ -1,0 +1,40 @@
+.mainLogo {
+    width:200px;
+}
+.navbar-brand {
+    padding-top:10px !important;
+}
+.navbar-default {
+    border:none;
+    background-color: transparent;
+}
+.carousel-caption {
+    margin-bottom: 10%;
+}
+.carousel-caption>img {
+    margin-bottom:10%;
+}
+
+.carousel .btn{
+    color: #CCC;
+    width: 180px;
+    height: 40px;
+    border:1px solid #AAA ;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: 30px;
+    padding: 10px 10px;
+    border-radius: 0px;
+}
+.carousel .btn:hover{
+    background: rgba(0,0,0,0.8);
+}
+.carousel .btn, a, .btn:hover, a:hover {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+}
