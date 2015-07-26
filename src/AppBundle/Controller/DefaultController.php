@@ -28,7 +28,6 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($RequestPeople);
             $em->flush();
-            //return new Response('Все ок');
             return $this->redirectToRoute('main_homepage');
         }
 
