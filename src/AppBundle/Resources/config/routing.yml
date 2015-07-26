@@ -3,4 +3,4 @@ main_homepage:
     defaults: { _controller: AppBundle:Default:showMainPage}
 admin_page:
     path:     /admin/{value}
-    defaults: { _controller: AppBundle:AdminPage:showAdminPage}
+    defaults: { _controller: AppBundle:AdminPage:showAdminPage, value:'main'}
