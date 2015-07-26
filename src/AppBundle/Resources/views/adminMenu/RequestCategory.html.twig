@@ -1,14 +1,37 @@
 {% extends 'AppBundle:Default:admin.html.twig' %}
+
 {% block content %}
-<h2>Категории вопросов</h2>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Добавить категорию</h4>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {#{{ form_row(form.requestCategory, {'label':'Выберите категорию', 'attr': {'class': 'form-control'}}) }}#}
+                    {{ form_row(form.name, {'label':'Имя категории', 'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="modal-footer">
+                    {{ form_label(form.save) }}
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    {{ form_widget(form.save) }}
+                    {{ form_rest(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+<h2>Категории вопросов  <a class="btn btn-default btn-flat" data-toggle="modal" data-target="#myModal"><span class = "glyphicon glyphicon-plus"></span></a></h2>
+
 <table class="table table-bordered table-hover table-striped">
     <thead>
     <th>Ид</th>
     <th>Текст</th>
     </thead>
     <tbody>
-    {% for RequestCategory in RequestCategory %}
-    <tr>
+    {% for RequestCategory in RequestCategory %}<tr>
         <td>{{ RequestCategory.id }}</td>
         <td>{{ RequestCategory.name }}</td>
     </tr>

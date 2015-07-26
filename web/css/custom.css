@@ -38,3 +38,8 @@
     transition: all 0.3s ease-in-out;
     outline: none !important;
 }
+.btn-flat {
+    border: none !important;
+}.btn-flat:hover {
+    background-color: transparent !important;
+ }
