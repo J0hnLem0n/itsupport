@@ -23,6 +23,12 @@
     </script>
 </head>
 <body>
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        {{ render(controller('FOSUserBundle:Security:login')) }}
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -66,6 +72,13 @@
                     <li><a href="#">Главная</a></li>
                     <li><a href="#about">О сервисе</a></li>
                     <li><a href="#contact">Контакты</a></li>
+                    {% if app.user %}
+                        <li><a href="{{ path('admin_page') }}">Администрирование</a></li>
+                        <li><a>{{ app.security.getToken().getUser().getUsername() }}</a></li>
+                    {% else %}
+                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Войти</a></li>
+                    {% endif %}
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

@@ -1,18 +1,18 @@
 {% extends 'AppBundle:Default:admin.html.twig' %}
 {% block content %}
-<h2>Заявки пользователей</h2>
-<table class="table table-bordered table-hover table-striped">
-    <thead>
-    <th>Ид</th>
-    <th>Текст</th>
-    </thead>
-    <tbody>
-    {% for RequestPeople in RequestPeople %}
-    <tr>
-        <td>{{ RequestPeople.id }}</td>
-        <td>{{ RequestPeople.text }}</td>
-    </tr>
-{% endfor %}
-    </tbody>
-</table>
+    <h2>Заявки пользователей</h2>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <th>Ид</th>
+        <th>Текст</th>
+        </thead>
+        <tbody>
+        {% for RequestPeople in RequestPeople %}
+            <tr>
+                <td>{{ RequestPeople.id }}</td>
+                <td>{{ RequestPeople.text }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

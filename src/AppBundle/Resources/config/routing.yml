@@ -4,3 +4,7 @@ main_homepage:
 admin_page:
     path:     /admin/{value}
     defaults: { _controller: AppBundle:AdminPage:showAdminPage, value:'main'}
+hide_login:
+    path:     /login
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

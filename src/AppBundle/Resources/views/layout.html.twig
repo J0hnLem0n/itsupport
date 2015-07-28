@@ -1,0 +1,20 @@
+        <div class="loginmodal-container">
+            <h1>Войти в свой аккаунт</h1><br>
+            <form action="{{ path('fos_user_security_check') }}" method="POST" class="fos_user_login">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {#<input type="text" name="user" >#}
+                <input type="text" id="inputUsernameEmail" name="_username" required="required" placeholder="Имя пользователя" />
+                {#<input type="password" name="pass" placeholder="Password">#}
+                <input type="password" class="form-control" id="inputPassword" name="_password" required="required" placeholder="Пароль" />
+                {#<input type="submit" name="login" class="login loginmodal-submit" value="Login">#}
+                <input type="submit" name="login" class="login loginmodal-submit" value="Войти">
+                {% if error %}
+                    {#<div style="color:red">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+                    <div style="color:red">Вам не удалось авторизоваться в системе</div>
+
+                {% endif %}
+            </form>
+            <div class="login-help">
+                <a href="#">Регистация</a> - <a href="#">Восстановить пароль</a>
+            </div>
+        </div>

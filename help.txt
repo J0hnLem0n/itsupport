@@ -1,0 +1,7 @@
+Добавить роль пользователю: php app/console fos:user:promote
+(php app/console fos:user:create)
+ROLE_ADMIN
+------------------------------------------------------------
+php app/console doctrine:schema:update --force
+Обновить БД
+------------------------------------------------------------
