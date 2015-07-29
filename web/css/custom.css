@@ -1,3 +1,6 @@
+a {
+    cursor:pointer;
+}
 .mainLogo {
     width:200px;
 }
@@ -137,4 +140,18 @@
 
 .login-help {
     font-size: 12px;
+}
+#scroll {
+    display: none;
+    background: url("../images/scrollUp.png") no-repeat;
+    width: 38px;
+    height: 38px;
+    position: fixed;
+    right: 50px;
+    bottom: 60px;
+    cursor: pointer;
+    z-index: 1;
+}
+.visScroll {
+    display: inline-block !important;
 }
