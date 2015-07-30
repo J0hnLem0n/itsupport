@@ -37,37 +37,4 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set realname
-     *
-     * @param string $realname
-     * @return User
-     */
-    public function setRealname($realname)
-    {
-        $this->realname = $realname;
-
-        return $this;
-    }
-
-    /**
-     * Get realname
-     *
-     * @return string 
-     */
-    public function getRealname()
-    {
-        return $this->realname;
-    }
 }

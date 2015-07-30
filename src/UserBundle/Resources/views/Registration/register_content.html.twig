@@ -1,0 +1,19 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {#{{ form_widget(form) }}#}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.realname, {'label':'ФИО', 'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.username, {'label':'Логин', 'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.plainPassword.first, {'label':'Пароль', 'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.plainPassword.second, {'label':'Повторите пароль', 'attr': {'class': 'form-control'}}) }}
+    {#{{ form_row(form.Repeat password, {'label':'Повторите пароль', 'attr': {'class': 'form-control'}}) }}#}
+    {{ form_row(form.email, {'label':'Email', 'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.roles[0], {'label':'Тип учетной записи', 'attr': {'class': 'form-control'}}) }}
+    {{ form_rest(form) }}
+    <div>
+        <h1>Hello word</h1>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</form>
