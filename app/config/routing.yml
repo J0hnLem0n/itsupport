@@ -1,4 +1,7 @@
 _main:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
+_user_bundle:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
 
