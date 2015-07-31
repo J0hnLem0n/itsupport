@@ -155,3 +155,6 @@ a {
 .visScroll {
     display: inline-block !important;
 }
+.login-help {
+    font-size: 18px;
+}
