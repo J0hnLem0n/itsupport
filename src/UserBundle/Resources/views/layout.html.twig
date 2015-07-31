@@ -1,11 +1,24 @@
-{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-    <a href="{{ path('fos_user_security_logout') }}">
-        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-    </a>
-{% else %}
-    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+</head>
+{% block stylesheets %}
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" >
+    <link href="{{ asset('css/userBundle.css') }}" rel="stylesheet" >
+    <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+<body>
+<div>
+    {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+        {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+        {#<a href="{{ path('fos_user_security_logout') }}">#}
+            {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+        {#</a>#}
+    {#{% else %}#}
+        {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+    {#{% endif %}#}
 </div>
 
 {% if app.request.hasPreviousSession %}
@@ -22,3 +35,9 @@
     {% block fos_user_content %}
     {% endblock fos_user_content %}
 </div>
+</body>
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+{% endblock %}
+</html>

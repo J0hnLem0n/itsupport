@@ -34,17 +34,11 @@ class AdminPageController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($RequestCategory);
                 $em->flush();
-//                $url = $this->get('router')->generate('blog_show', array('slug' => 'my-blog-post'));
-//                return $this->render('AppBundle:adminMenu:RequestCategory.html.twig', array('value' => 'main'));
-//                return $this->render('AppBundle:adminMenu:RequestCategory.html.twig', array('RequestCategory' => $requestCategory));
                return $this->redirectToRoute('admin_page', ['value' => 'requestCategory']);
             }
             $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:RequestCategory');
             $requestCategory = $em->findBy(array(), array('id' => 'ASC'));
             return $this->render('AppBundle:adminMenu:RequestCategory.html.twig', array('RequestCategory' => $requestCategory,'form' => $form->createView()));
-//            return $this->render('AppBundle:Default:index.html.twig', array(
-//                'form' => $form->createView(),
-//            ));
 
 
         }

@@ -73,13 +73,16 @@
                     <li><a onclick="$.scrollify('move','#main');">Главная</a></li>
                     <li><a onclick="$.scrollify('move','#about');">О сервисе</a></li>
                     <li><a onclick="$.scrollify('move','#contact');">Контакты</a></li>
-                    {% if app.user %}
+                    {#{% if app.user %}#}
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li><a href="{{ path('admin_page') }}">Администрирование</a></li>
-                        <li><a>{{ app.security.getToken().getUser().getUsername() }}</a></li>
+                    {% endif %}
+                    {% if app.user %}
+                        {#...#}
                     {% else %}
+                        <li><a>{{ app.security.getToken().getUser().getUsername() }}</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#login-modal">Войти</a></li>
                     {% endif %}
-
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
