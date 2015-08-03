@@ -72,16 +72,21 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="{{ path('admin_page', { 'value': 'main' }) }}"><i class="fa fa-fw fa-dashboard"></i> Администрирование</a>
+                    <a href="{{ path('admin_page', { 'value': 'admin_main' }) }}" {% if app.request.get('_route_params').value == 'admin_main' %} class="activeLeftAdminMenu" {% endif %}><i class="fa fa-fw fa-dashboard"></i> Администрирование</a>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Справочник <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
+                    <ul id="demo"
+                            {% set url = app.request.get('_route_params').value|split('_') %}
+                            {% if url[0] == 'handbook' %}
+                                class="collapse in" {% else %}
+                                class="collapse"
+                            {% endif %}>
                         <li>
-                            <a href="#">Пользователи</a>
+                            <a href="{{ path('admin_page', { 'value': 'handbook_Users' }) }}" {% if app.request.get('_route_params').value == 'handbook_Users' %} class="activeLeftAdminMenu" {% endif %}>Пользователи</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_page', { 'value': 'requestCategory' }) }}">Категории вопросов</a>
+                            <a href="{{ path('admin_page', { 'value': 'handbook_requestCategory' }) }}" {% if app.request.get('_route_params').value == 'handbook_requestCategory' %} class="activeLeftAdminMenu" {% endif %}>Категории вопросов</a>
                         </li>
                     </ul>
                 </li>
@@ -89,7 +94,6 @@
         </div>
         <!-- /.navbar-collapse -->
     </nav>
-
     <div id="page-wrapper">
 
         <div class="container-fluid">

@@ -27,12 +27,10 @@
 
 <table class="table table-bordered table-hover table-striped">
     <thead>
-    <th>Ид</th>
     <th>Текст</th>
     </thead>
     <tbody>
     {% for RequestCategory in RequestCategory %}<tr>
-        <td>{{ RequestCategory.id }}</td>
         <td>{{ RequestCategory.name }}</td>
     </tr>
 {% endfor %}

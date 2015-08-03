@@ -1,0 +1,24 @@
+{% extends 'AppBundle:Default:admin.html.twig' %}
+{% block content %}
+    <h2>Пользователи</h2>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <th>ФИО</th>
+        <th>НИК</th>
+        <th>Эл адрес</th>
+        <th>Статус</th>
+        <th>Роль</th>
+        </thead>
+        <tbody>
+        {% for Users in Users %}
+            <tr>
+                <td>{{ Users.realname }}</td>
+                <td>{{ Users.username }}</td>
+                <td>{{ Users.email }}</td>
+                <td>{{ Users.enabled }}</td>
+                <td>{{ Users.roles|join(', ') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

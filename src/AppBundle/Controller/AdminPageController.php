@@ -16,13 +16,12 @@ class AdminPageController extends Controller
 //     */
     public function showAdminPageAction(Request $request, $value)
     {
-       // return new Response('Admin page!');
-        if ($value == 'main') {
+        if ($value == 'admin_main') {
             $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:RequestPeople');
             $requestPeople = $em->findBy(array(), array('id' => 'ASC'));
             return $this->render('AppBundle:adminMenu:RequestPeople.html.twig', array('RequestPeople' => $requestPeople));
         }
-        if ($value == 'requestCategory') {
+        if ($value == 'handbook_requestCategory') {
             $RequestCategory = new RequestCategory();
             $form = $this->createFormBuilder($RequestCategory)
                 ->add('name', 'text')
@@ -39,8 +38,11 @@ class AdminPageController extends Controller
             $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:RequestCategory');
             $requestCategory = $em->findBy(array(), array('id' => 'ASC'));
             return $this->render('AppBundle:adminMenu:RequestCategory.html.twig', array('RequestCategory' => $requestCategory,'form' => $form->createView()));
-
-
+        }
+        if ($value == 'handbook_Users') {
+            $em = $this->getDoctrine()->getManager()->getRepository('UserBundle:User');
+            $Users = $em->findBy(array(), array('id' => 'ASC'));
+            return $this->render('AppBundle:adminMenu:Users.html.twig', array('Users' => $Users));
         }
     }
 }

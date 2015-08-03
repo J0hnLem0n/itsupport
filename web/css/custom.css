@@ -158,3 +158,6 @@ a {
 .login-help {
     font-size: 18px;
 }
+.activeLeftAdminMenu {
+    background-color: #000 !important;
+}
